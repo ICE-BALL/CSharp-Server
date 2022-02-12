@@ -1,0 +1,14 @@
+C:\Users\Uaer\Desktop\Server\ServerCore\bin\Debug\netcoreapp3.1\ServerCore.exe
+C:\Users\Uaer\Desktop\Server\ServerCore\bin\Debug\netcoreapp3.1\ServerCore.deps.json
+C:\Users\Uaer\Desktop\Server\ServerCore\bin\Debug\netcoreapp3.1\ServerCore.runtimeconfig.json
+C:\Users\Uaer\Desktop\Server\ServerCore\bin\Debug\netcoreapp3.1\ServerCore.runtimeconfig.dev.json
+C:\Users\Uaer\Desktop\Server\ServerCore\bin\Debug\netcoreapp3.1\ServerCore.dll
+C:\Users\Uaer\Desktop\Server\ServerCore\bin\Debug\netcoreapp3.1\ServerCore.pdb
+C:\Users\Uaer\Desktop\Server\ServerCore\obj\Debug\netcoreapp3.1\ServerCore.csproj.AssemblyReference.cache
+C:\Users\Uaer\Desktop\Server\ServerCore\obj\Debug\netcoreapp3.1\ServerCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Uaer\Desktop\Server\ServerCore\obj\Debug\netcoreapp3.1\ServerCore.AssemblyInfoInputs.cache
+C:\Users\Uaer\Desktop\Server\ServerCore\obj\Debug\netcoreapp3.1\ServerCore.AssemblyInfo.cs
+C:\Users\Uaer\Desktop\Server\ServerCore\obj\Debug\netcoreapp3.1\ServerCore.csproj.CoreCompileInputs.cache
+C:\Users\Uaer\Desktop\Server\ServerCore\obj\Debug\netcoreapp3.1\ServerCore.dll
+C:\Users\Uaer\Desktop\Server\ServerCore\obj\Debug\netcoreapp3.1\ServerCore.pdb
+C:\Users\Uaer\Desktop\Server\ServerCore\obj\Debug\netcoreapp3.1\ServerCore.genruntimeconfig.cache
