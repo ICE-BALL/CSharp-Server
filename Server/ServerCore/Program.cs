@@ -12,8 +12,7 @@ namespace ServerCore
         {
             while (true)
             {
-                int origin = Interlocked.CompareExchange(ref _lock, 1, 0);
-                if (origin == 0)
+                if (Interlocked.CompareExchange(ref _lock, 1, 0) == 0)
                     break;
 
                 Thread.Yield();
