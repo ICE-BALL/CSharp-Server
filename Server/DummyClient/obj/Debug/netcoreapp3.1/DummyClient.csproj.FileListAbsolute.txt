@@ -25,3 +25,17 @@ C:\Users\오헌\Documents\C-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\Du
 C:\Users\오헌\Documents\C-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.dll
 C:\Users\오헌\Documents\C-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.pdb
 C:\Users\오헌\Documents\C-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.genruntimeconfig.cache
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.exe
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.deps.json
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.runtimeconfig.json
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.runtimeconfig.dev.json
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.dll
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.pdb
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.csproj.AssemblyReference.cache
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.AssemblyInfoInputs.cache
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.AssemblyInfo.cs
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.csproj.CoreCompileInputs.cache
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.dll
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.pdb
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.genruntimeconfig.cache

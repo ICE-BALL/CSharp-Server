@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ByLG1tQM+y8rMM84uBGRwo457Y7o4EDHY5iKVGc/JBszVxfn8t6LWZFP0bNHJggda62Op/bJXnFXGMxghVpI2w==",
+  "dgSpecHash": "rIO2zyp8+j19fU/iyZSrjM/OI8+he3vzi1GwE/rLY8s+3t7fw8ktf2DR9u86Y1MgL0LrOk7q3ldZpP+OjCuyoA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\오헌\\Documents\\C-Server\\Server\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\오헌\\Documents\\CSharp-Server\\Server\\Server\\Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
-    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
   ],
   "logs": []
 }
