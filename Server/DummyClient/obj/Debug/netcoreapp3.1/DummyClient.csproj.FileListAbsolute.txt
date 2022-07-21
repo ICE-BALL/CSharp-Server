@@ -39,3 +39,6 @@ C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3
 C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.dll
 C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.pdb
 C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.genruntimeconfig.cache
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\bin\Debug\netcoreapp3.1\ServerCore.dll
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\bin\Debug\netcoreapp3.1\ServerCore.pdb
+C:\Users\오헌\Documents\CSharp-Server\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.csproj.CopyComplete

@@ -3,57 +3,57 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using ServerCore;
 
 namespace DummyClient
 {
-    class Program
+    class GameSession : Session
     {
+        public override void OnConnected(EndPoint endPoint)
+        {
+            Console.WriteLine($"Connected To {endPoint}");
+            byte[] sendBuff = Encoding.UTF8.GetBytes("Hello World !");
+            Send(sendBuff);
+
+        }
+
+        public override void OnDisConnected(EndPoint endPoint)
+        {
+            Console.WriteLine($"DisConnected {endPoint}");
+        }
+
+        public override int OnRecv(ArraySegment<byte> Buffer)
+        {
+            string recvData = Encoding.UTF8.GetString(Buffer.Array, Buffer.Offset, Buffer.Count);
+            Console.WriteLine($"[From Server] {recvData}");
+
+            return Buffer.Count;
+        }
+
+        public override void OnSend(int numOfbytes)
+        {
+            Console.WriteLine($"Sended {numOfbytes} byte");
+        }
+    }
+
+    internal class Program
+    {
+        static Connector _connector = new Connector();
+
         static void Main(string[] args)
         {
-            //DNS (Domain Name System)
             string host = Dns.GetHostName();
-            // 주소 가져오기
-            IPHostEntry ipHost = Dns.GetHostEntry(host);
-            // 첫 번째로 알려준 주소
-            IPAddress ipAddr = ipHost.AddressList[0];
-            // 최종 주소  7777 => 문 느낌 클라이언트랑 맞춰 줘야함.
-            IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
+            IPHostEntry IPhost = Dns.GetHostEntry(host);
+            IPAddress IPAddr = IPhost.AddressList[0];
+            IPEndPoint endPoint = new IPEndPoint(IPAddr, 7777);
+
+            _connector.Init(endPoint, () => { return new GameSession(); });
 
             while (true)
             {
-                // 휴대폰 연결
-                Socket socket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-                try
-                {
-                    // 문지기한테 입장 문의
-                    socket.Connect(endPoint);
-                    Console.WriteLine($"Connected to {socket.RemoteEndPoint.ToString()}");
-
-                    // 보낸다
-                    for (int i = 0; i < 5; i++)
-                    {
-                        byte[] sendBuff = Encoding.UTF8.GetBytes($"Hello World! {i}");
-                        int sendBytes = socket.Send(sendBuff);
-                    }
-                    
-                    // 받는다
-                    byte[] recvBuff = new byte[1024];
-                    int recvBytes = socket.Receive(recvBuff);
-                    string recvData = Encoding.UTF8.GetString(recvBuff, 0, recvBytes);
-                    Console.WriteLine($"[From Server] {recvData}");
-
-                    // 나간다
-                    socket.Shutdown(SocketShutdown.Both);
-                    socket.Close();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-
-                Thread.Sleep(100);
+                ;
             }
         }
+
     }
 }

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dcGN1l1hE3ibg69Ra/uEXiLWS+BcSmV9PlKpvkl8Lh27EDAxEYDmg7TTD1Jg0Tnq6oSYzyErDlqRlj/xm70mRw==",
+  "dgSpecHash": "b+U7XzwWmqlHWZ+ePgH6bQ1aFSzJ/DzOzNiJZn6WlEB/jy9IWgiox9oNP4enhxSc8ZtRDJBfvesBLZ7Md2H71A==",
   "success": true,
   "projectFilePath": "C:\\Users\\오헌\\Documents\\CSharp-Server\\Server\\DummyClient\\DummyClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
+    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
   ],
   "logs": []
 }

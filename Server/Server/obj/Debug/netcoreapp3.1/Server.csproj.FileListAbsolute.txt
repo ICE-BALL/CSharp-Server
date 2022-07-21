@@ -26,3 +26,6 @@ C:\Users\오헌\Documents\CSharp-Server\Server\Server\obj\Debug\netcoreapp3.1\Se
 C:\Users\오헌\Documents\CSharp-Server\Server\Server\obj\Debug\netcoreapp3.1\Server.dll
 C:\Users\오헌\Documents\CSharp-Server\Server\Server\obj\Debug\netcoreapp3.1\Server.pdb
 C:\Users\오헌\Documents\CSharp-Server\Server\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
+C:\Users\오헌\Documents\CSharp-Server\Server\Server\bin\Debug\netcoreapp3.1\ServerCore.dll
+C:\Users\오헌\Documents\CSharp-Server\Server\Server\bin\Debug\netcoreapp3.1\ServerCore.pdb
+C:\Users\오헌\Documents\CSharp-Server\Server\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete

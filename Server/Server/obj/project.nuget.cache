@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rIO2zyp8+j19fU/iyZSrjM/OI8+he3vzi1GwE/rLY8s+3t7fw8ktf2DR9u86Y1MgL0LrOk7q3ldZpP+OjCuyoA==",
+  "dgSpecHash": "tx8ktdm9hm/mjkc4u7VY6oXbaYfCK1YMjUNsdQ18A/hF7NCG5LoiDl5gzPrN7neyM2uXboRzWzKcdj7Z6x+9sA==",
   "success": true,
   "projectFilePath": "C:\\Users\\오헌\\Documents\\CSharp-Server\\Server\\Server\\Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
+    "C:\\Users\\오헌\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
   ],
   "logs": []
 }

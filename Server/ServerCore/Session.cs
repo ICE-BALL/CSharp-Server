@@ -1,32 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Net;
 
 namespace ServerCore
 {
-    class Session
+    public abstract class Session
     {
         Socket _socket;
-        int _disconnected = 0;
-
+        int _disConnect = 0;
+        Queue<byte[]> _sendQueue = new Queue<byte[]>();
+        List<ArraySegment<byte>> _sendList = new List<ArraySegment<byte>>();
         object _lock = new object();
 
-        Queue<byte[]> _sendQueue = new Queue<byte[]>();
-        bool _pending = false;
+        RecvBuffer _recvBuffer = new RecvBuffer(1024);
+
         SocketAsyncEventArgs _sendArgs = new SocketAsyncEventArgs();
+        SocketAsyncEventArgs _recvArgs = new SocketAsyncEventArgs();
 
         public void Start(Socket socket)
         {
             _socket = socket;
-            SocketAsyncEventArgs recvArgs = new SocketAsyncEventArgs();
-            recvArgs.Completed += new EventHandler<SocketAsyncEventArgs>(OnRecvCompleted);
-            recvArgs.SetBuffer(new byte[1024], 0, 1024);
 
             _sendArgs.Completed += new EventHandler<SocketAsyncEventArgs>(OnSendCompleted);
+            _recvArgs.Completed += new EventHandler<SocketAsyncEventArgs>(OnRecvCompleted);
 
-            RegisterRecv(recvArgs);
+            RegisterRecv();
         }
 
         public void Send(byte[] sendBuff)
@@ -34,27 +37,20 @@ namespace ServerCore
             lock (_lock)
             {
                 _sendQueue.Enqueue(sendBuff);
-                if (_pending == false)
+
+                if (_sendList.Count == 0)
                     RegisterSend();
             }
         }
 
-        public void Disconnect()
-        {
-            if (Interlocked.Exchange(ref _disconnected, 1) == 1)
-                return;
-
-            _socket.Shutdown(SocketShutdown.Both);
-            _socket.Close();
-        }
-
-        #region 네트워크 통신
-
         void RegisterSend()
         {
-            _pending = true;
-            byte[] buff = _sendQueue.Dequeue();
-            _sendArgs.SetBuffer(buff, 0, buff.Length);
+            while (_sendQueue.Count > 0)
+            {
+                byte[] Buffer = _sendQueue.Dequeue();
+                _sendList.Add(Buffer);
+            }
+            _sendArgs.BufferList = _sendList;
 
             bool pending = _socket.SendAsync(_sendArgs);
             if (pending == false)
@@ -67,60 +63,90 @@ namespace ServerCore
             {
                 if (args.BytesTransferred > 0 && args.SocketError == SocketError.Success)
                 {
-                    // TODO
                     try
                     {
+                        _sendArgs.BufferList = null;
+                        _sendList.Clear();
+
+                        OnSend(args.BytesTransferred);
+
                         if (_sendQueue.Count > 0)
                             RegisterSend();
-                        else
-                            _pending = false;
-
-
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine($"OnSendCompleted Failed {e}");
+                        Console.WriteLine(e);
                     }
                 }
                 else
                 {
-                    // TODO Disconnect
-                    Disconnect();
+                    DisConnect();
                 }
-                
             }
-            
         }
 
-        void RegisterRecv(SocketAsyncEventArgs args)
+        void RegisterRecv()
         {
-            bool pending = _socket.ReceiveAsync(args);
+            ArraySegment<byte> segment = _recvBuffer.WriteSegment;
+            _recvArgs.SetBuffer(segment.Array, segment.Offset, segment.Count);
+
+            bool pending = _socket.ReceiveAsync(_recvArgs);
             if (pending == false)
-                OnRecvCompleted(null, args);
+                OnRecvCompleted(null, _recvArgs);
         }
 
         void OnRecvCompleted(object sender, SocketAsyncEventArgs args)
         {
             if (args.BytesTransferred > 0 && args.SocketError == SocketError.Success)
             {
-                // TODO
                 try
                 {
-                    string recvData = Encoding.UTF8.GetString(args.Buffer, args.Offset, args.BytesTransferred);
-                    Console.WriteLine($"[From Client] {recvData}");
-                    RegisterRecv(args);
+                    if (args.BytesTransferred > 0 && args.SocketError == SocketError.Success)
+                    {
+                        if (_recvBuffer.OnWrite(args.BytesTransferred) == false)
+                        {
+                            DisConnect();
+                            return;
+                        }
+                        int processLen = OnRecv(args.Buffer);
+
+                        if (_recvBuffer.OnRead(args.BytesTransferred) == false)
+                        {
+                            DisConnect();
+                            return;
+                        }
+
+                        RegisterRecv();
+                    }
+                    else
+                    {
+                        Console.WriteLine(args.BytesTransferred);
+                    }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"OnRecvCompleted Failed {e}");
+                    Console.WriteLine(e);
                 }
             }
             else
             {
-                // TODO Disconnect
-                Disconnect();
+                DisConnect();
             }
         }
-        #endregion
+
+        public void DisConnect()
+        {
+            if (Interlocked.Exchange(ref _disConnect, 1) == 1)
+                return;
+
+            OnDisConnected(_socket.RemoteEndPoint);
+            _socket.Shutdown(SocketShutdown.Both);
+            _socket.Close();
+        }
+
+        public abstract void OnConnected(EndPoint endPoint);
+        public abstract int OnRecv(ArraySegment<byte> Buffer);
+        public abstract void OnSend(int numOfbytes);
+        public abstract void OnDisConnected(EndPoint endPoint);
     }
 }
